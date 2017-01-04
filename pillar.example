@@ -13,6 +13,21 @@ dhcpd:
             port: 647
             peer_address: 10.152.187.6
             peer_port: 647
+
+    ddns_keys:
+        example_key_1:
+            algorithm: HMAC-MD5
+            secret: THIS_IS_A_SECRET
+
+    ddns_zones:
+        example.org.:
+            server: 10.11.12.13                 # The IP address of ns1.example.org
+            key: example_key_1                  # The key defined above
+
+        187.152.10.in-addr.arpa.:
+            server: 10.11.12.13
+            key: example_key_1
+
     listen_interfaces:
         - em1
         - em2
